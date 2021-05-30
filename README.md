@@ -3,6 +3,8 @@
 
 "Android+ Arts & Culture"
 
+开发用的域名就zhon.fun
+
 名称：二刺螈本当上手(这不就是大头贴吗……)
 
 内容：
