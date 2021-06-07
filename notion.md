@@ -1,4 +1,4 @@
-# FlowerAudio开发过程
+# BlossomAudio
 
 ## 设计
 
@@ -27,12 +27,10 @@
 
 - 每个歌单内容表
 
-- [x] 关系型?
-- [ ] 非关系型？
 
-表的设计
+#### 表的设计
 
-#### 用户-user
+##### 用户-user
 
 | 名       | 类型   | 备注     |
 | -------- | ------ | -------- |
@@ -41,7 +39,7 @@
 | 注册邮箱 | string | 不能重复 |
 | 密码     | string | 加密存储 |
 
-#### 歌单-list
+##### 歌单-list
 
 | 名     | 类型   | 备注           |
 | ------ | ------ | -------------- |
@@ -50,7 +48,7 @@
 | 名称   | string | 不可空         |
 | 描述   | string | 可空           |
 
-#### 单个歌曲-audio
+##### 单个歌曲-audio
 
 | 名         | 类型                       | 备注         |
 | ---------- | -------------------------- | ------------ |
@@ -59,29 +57,45 @@
 | 名称       | string                     | 不可空       |
 | 内容       | 我不知道怎么存储短音频文件 | 不可控       |
 
+#### cloudbase配置
+
+**云开发推出了 Flutter SDK，在 iOS、Android 等移动应用平台中集成，可以方便使用云函数、云存储等能力。**，所以装Flutter吧。
+
+我很讨厌这玩意，一直找不到可参考的文件，所以我来通读全文了。
+
+cloudbase自带的云数据库支持：基础读写、聚合搜索、数据库事务、实时推送；
+
+云存储可以支持音频；
+
+云函数： 环境内自带云函数功能，可以函数的形式运行后端代码，支持SDK的调用或HTTP请求。云函数存储在云端，可以根据函数的使用情况，自动扩缩容；
+
+HTTP 访问服务：云开发为开发者提供的 HTTP 访问服务，可通过 HTTP 访问云开发资源 
+
+
+
 ## 编写
 
-- 开屏
-- 主页的侧边栏
-  - 侧边：注册/登录 打钱 隐私 评价 主页 （退出登录 设置？）
-- 注册登录
-- 
+### 创建与配置
 
-因为想做有侧边栏的主页新建一个项目名为FlowerAudio的Navigation Drawer Activity，使用域名为zhon.fun，使用版本16（因为用的手机是19，没办法）
+#### 新建项目
 
-目前项目文件夹中有一个MainActivity
+在Android Studio里配置好flutter
 
-运行一下示例项目，侧边栏做了三个frame：home、gallery、slideshow。接下来就慢慢改。
+创建Flutter Application Project，命名为`blossom_audio`
 
-## 开屏
+#### 配置CloudBase
 
-### 创建
+参考：[腾讯cloudbase文档](https://cloud.tencent.com/document/product/876/51930)
 
-Andorid官方文档中的`SplashActivity`即为开屏。
 
-在项目中新建一个`Empty Activity`命名为`SplashActivity`
 
-### 配置启动时显示
+### 开屏
+
+#### 创建
+
+[参考文档](https://flutter.dev/docs/development/ui/advanced/splash-screen)
+
+#### 配置启动时显示
 
 修改`AndroidManifest.xml`，将splashactivity对应的activity移动到mainactivity之前，并修改activity内部代码，最终如下
 
@@ -96,9 +110,7 @@ Andorid官方文档中的`SplashActivity`即为开屏。
 <activity android:name=".MainActivity"/>
 ```
 
-### 开屏页面
-
-新建一个名为`SplashActivity`的Empyt Activity
+#### 开屏页面
 
 1. 基础
 
@@ -137,80 +149,11 @@ Andorid官方文档中的`SplashActivity`即为开屏。
 
    - [ ] 以后再搞
 
-## 主页
+### 登录/注册
 
-对一开始的Navigation Drawer Activity文件构成的分析：
 
-- layout/nav_header_main.xml侧边栏上方的用户简介
-- menu/activity_main_drawer.xml是侧边栏的下半截（几种选项）
-- menu/main.xml是页面右上角的设置（不过这里设置啥呢，小编也不清楚）
-- navigation/mobile_navigation.xml是侧边栏选项对应的页面链接
-- layout/以fragment命名开头的三个文件则分别对应点击各自的名称所出现的页面。
 
-在values里增加值，需要的就是下面这几项
-
-```xml
-<string name="menu_home">主页</string>
-<string name="menu_login">登录</string>
-<string name="menu_assess">评价</string>
-<string name="menu_privacy">隐私政策</string>
-<string name="menu_donate">支持作者</string>
-<string name="menu_setting">设置</string>
-```
-
-menu文件夹里的内容也进行相应修改，使内容匹配
-
-```xml
-<item
-      android:id="@+id/nav_home"
-      android:icon="@drawable/ic_menu_camera"
-      android:title="@string/menu_home" />
-```
-
-如果要看空白模板以检查进度的话需要修改很多，本人写的时候为检查进度先进行了大改，但下面的设计部分是基于【没有修改】的理念而写的，可能有一些bug遗漏，请自行补全。
-
->  修改layout/中以fragment开头的文件和navigation/mobile_navigation.xml，最后应和侧边选项一致。
->
->  java代码中ui部分也需要修改，但我不知道怎么个性化所以 
->
-> - [ ] 先用home的代替一下
->
-> 因为我写的时候是保证能跑的，一边改一边理解结构，所以做了很多重复工作。
->
-> 如果不改模板，按部就班地写各个内容也可以，就是没法即时看效果。<-我个人推荐这种
-
->  只要能跑就行，反正后面也要改。
->
-> 跑起来的话，现在空白架子差不多搭起来了。
-
-### 侧边栏
-
-主页内容填充由home实现，这里是侧边栏的改进。
-
-#### 左上角图标动画
-
-使用[`ActionBarDrawerToggle`](https://developer.android.com/reference/android/support/v7/app/ActionBarDrawerToggle.html)
-
-## 登录/注册功能
-
-menu/activity_main_drawer.xml中加入对应的item
-
-```xml
-<item
-      android:id="@+id/nav_login"
-      android:icon="@drawable/ic_menu_login"
-      android:title="@string/menu_login" />
-```
-
-navigation/mobile_navigation.xml中加入对应的fragment项：
-
-```xml
-<fragment
-          android:id="@+id/nav_login"
-          android:name="fun.zhon.floweraudio.ui.login.LoginFragment"
-          android:label="@string/menu_login"
-          tools:layout="@layout/fragment_login" />
-```
+### 主页
 
 
 
