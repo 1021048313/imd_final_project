@@ -55,9 +55,10 @@ class UserTable{
 Future<void> getLoginInfo() async{
     // Map<String,String> userLoginInfo=new Map<String,String>();
     await userCollection.get().then((res) {
-      var data = res.data[0];
+      var datas = res.data;
       // mockUsers.update(data['userEmail'].toString(),(value) =>data['userPwd']);
-      mockUsers[data['userEmail']]=data['userPwd'];
+      for (var data in datas)
+        mockUsers[data['userEmail']]=data['userPwd'];
     });
   // return userLoginInfo;
 

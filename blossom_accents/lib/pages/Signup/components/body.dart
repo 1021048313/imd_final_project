@@ -13,7 +13,7 @@ import 'package:flutter_svg/svg.dart';
 class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    String userEmail,userPwd;
+    String userEmail,userPwd,userPwd2;
     Size size = MediaQuery.of(context).size;
     return Background(
       child: SingleChildScrollView(
@@ -36,30 +36,19 @@ class Body extends StatelessWidget {
             RoundedPasswordField(
               onChanged: (value) {userPwd=value;},
             ),
+            RoundedPasswordField(
+              onChanged: (value) {userPwd2=value;},
+            ),
             RoundedButton(
               text: "注册",
               press: () {
                 if(mockUsers.containsKey(userEmail))
-                  Fluttertoast.showToast(
-                      msg: ("该邮箱已被注册"),
-                      toastLength: Toast.LENGTH_SHORT,
-                      gravity: ToastGravity.CENTER,
-                      timeInSecForIosWeb: 1,
-                      backgroundColor: Colors.cyan,
-                      textColor: Colors.white,
-                      fontSize: 16.0
-                  );
+                  toast("邮箱已注册");
+                else if(userPwd!=userPwd2)
+                  toast("两次密码不对");
                 else{
                   UserTable().addUserWhenRegister(userPwd, userEmail).then((value) {
-                    Fluttertoast.showToast(
-                        msg: ("注册成功"),
-                        toastLength: Toast.LENGTH_SHORT,
-                        gravity: ToastGravity.CENTER,
-                        timeInSecForIosWeb: 1,
-                        backgroundColor: Colors.cyan,
-                        textColor: Colors.white,
-                        fontSize: 16.0
-                    );
+                    toast("注册成功");
                     router.navigateTo(context, 'index');
                   });
                 }
