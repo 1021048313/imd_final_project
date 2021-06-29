@@ -17,19 +17,18 @@ void main() async{
   router=routerReg;
   //路由注册 end
 
-  CloudBaseLogin().login().then((v){
+  var v=await CloudBaseLogin().login();
     //v是登陆成功与否
-    if(!v){print("Admin数据库登陆失败");return;}
-    // UserTable().add("kageyama","1234","5678");
-    //成功获取mockUsers，进入登陆页面。
-    UserTable().getLoginInfo().then((value) {
-      print(mockUsers.length);
-    runApp(MyApp());}
-    );
+  if(v==false){print("Admin数据库登陆失败");return;}
+  // UserTable().add("kageyama","1234","5678");
+  //成功获取mockUsers，进入登陆页面。
+  UserTable().getLoginInfo().then((value) {
+  runApp(MyApp());}
+  );
 
 
     // {mockUsers=value;  print(mockUsers.length);});
-  });
+  // });
 }
 
 class MyApp extends StatelessWidget {
@@ -37,8 +36,6 @@ class MyApp extends StatelessWidget {
   Widget build(context) {
     // sharedDeleteData(USER_LOGIN).then((value) => print("删除成功"));
     // sharedDeleteData(USER_EMAIL);
-    // sharedDeleteData(USER_NAME);
-    // sharedDeleteData(USER_IMG);
     // sharedDeleteData(USER_LOGIN);
     return FutureBuilder<Object>(future: sharedGetData(USER_LOGIN),
         builder: (context, AsyncSnapshot<Object> snapshot) {

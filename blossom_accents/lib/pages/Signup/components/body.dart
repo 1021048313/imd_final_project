@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import '../../Login/login_screen.dart';
 import 'background.dart';
-import 'package:blossom_accents/components/already_have_an_account_acheck.dart';
-import 'package:blossom_accents/components/rounded_button.dart';
-import 'package:blossom_accents/components/rounded_input_field.dart';
-import 'package:blossom_accents/components/rounded_password_field.dart';
+import 'package:blossom_accents/pages/components/already_have_an_account_acheck.dart';
+import 'package:blossom_accents/pages/components/rounded_button.dart';
+import 'package:blossom_accents/pages/components/rounded_input_field.dart';
+import 'package:blossom_accents/pages/components/rounded_password_field.dart';
 import 'package:flutter_svg/svg.dart';
 
 class Body extends StatelessWidget {

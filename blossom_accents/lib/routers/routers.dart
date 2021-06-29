@@ -14,6 +14,7 @@ class Routers {
   static String instructions="/instructions";
   static String search="/search";
   static String collect="/collect";
+  static String record="/record";
 
   static void configureRoutes(FluroRouter router) {
     router.notFoundHandler = new Handler(
@@ -26,5 +27,6 @@ class Routers {
     router.define(login, handler: loginHandler);
     router.define(index, handler: indexHandler);
     router.define(welcome, handler: welcomeHandler);
+    // router.define(record, handler: recordHandler);
   }
 }

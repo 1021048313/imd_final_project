@@ -45,6 +45,14 @@ dependencies:
   # 搜索框
   material_floating_search_bar: ^0.2.6
   # 录音
+  flutter_plugin_record: ^0.3.5
+  flutter_screenutil: ^4.0.4
+  flutter_sound: ^7.8.4
+  path_provider: ^1.6.28
+  permission_handler: ^5.1.0
+  flutter_audio_recorder: ^0.5.5
+  audioplayers: ^0.17.0
+
 
 
 

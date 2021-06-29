@@ -1,15 +1,12 @@
-import 'package:blossom_accents/cloudbase/Tables.dart';
-import 'package:blossom_accents/cloudbase/UserTable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'background.dart';
 import '../../Signup/signup_screen.dart';
-import 'package:blossom_accents/components/already_have_an_account_acheck.dart';
-import 'package:blossom_accents/components/rounded_button.dart';
-import 'package:blossom_accents/components/rounded_input_field.dart';
-import 'package:blossom_accents/components/rounded_password_field.dart';
+import 'package:blossom_accents/pages/components/already_have_an_account_acheck.dart';
+import 'package:blossom_accents/pages/components/rounded_button.dart';
+import 'package:blossom_accents/pages/components/rounded_input_field.dart';
+import 'package:blossom_accents/pages/components/rounded_password_field.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:blossom_accents/common/application.dart';
 import 'package:blossom_accents/common/shared_util.dart';
@@ -52,10 +49,10 @@ class Body extends StatelessWidget {
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             SizedBox(height: size.height * 0.03),
-            SvgPicture.asset(
-              "assets/icons/login.svg",
-              height: size.height * 0.35,
-            ),
+            // SvgPicture.asset(
+            //   "assets/icons/login.svg",
+            //   height: size.height * 0.35,
+            // ),
             SizedBox(height: size.height * 0.03),
             RoundedInputField(
               hintText: "邮箱",

@@ -8,3 +8,4 @@ Collection listCollection;
 Collection audioCollection;
 //存储
 CloudBaseStorage storage;
+CloudBaseDatabase db;

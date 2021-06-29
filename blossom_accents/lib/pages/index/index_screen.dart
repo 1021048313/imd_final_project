@@ -5,6 +5,7 @@ import 'package:blossom_accents/common/shared_util.dart';
 import 'package:blossom_accents/pages/index/components/body.dart';
 import 'package:flutter/material.dart';
 import 'package:blossom_accents/common/application.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 
@@ -16,16 +17,23 @@ class IndexScreen extends StatefulWidget {
   _IndexScreenState createState() => _IndexScreenState();
 }
 
-Future<bool> initUserAndIndex() async{
-  // sharedGetData(USER_NAME).then((value){curUsername=value.toString();print(curUsername);} );
-  // sharedGetData(USER_IMG).then((value) =>curUserImg=value.toString() );
-  // sharedGetData(USER_ID).then((value) => curUserId=value);
-  // sharedGetData(USER_EMAIL).then((value) => curUserEmail=value);
-  if (curUserEmail==null) sharedGetData(USER_EMAIL).then((value) => curUserEmail=value.toString());
-  print(curUserEmail);
-  await UserTable().getUserInfo(curUserEmail).then((value){print("user加载完成");});
-  await CollectionTable().getIndexList().then((value){print("Collection加载完成");return true;});
-  return null;
+
+Future<bool> initUserAndIndex(){
+  return Future.delayed(delayTime).then((_) async {
+    if (curUserEmail==null) await sharedGetData(USER_EMAIL).then((value){
+      curUserEmail = value.toString();
+      // print("curUserEmail="+curUserEmail);
+      UserTable().getUserInfo(curUserEmail).then((value) {
+        print("user加载完成");
+        print("curUsername="+curUsername);
+        print("curUserImg="+curUserImg);
+      });
+      return true;
+      // });
+    });
+    return null;
+  });
+
 
 }
 
@@ -50,37 +58,8 @@ class _IndexScreenState extends State<IndexScreen> {
                   ),
                 );
             }
-
-        // if (snapshot.hasData) {
-        //   return WillPopScope(
-        //     onWillPop: () => router.navigateTo(context, '/welcome'),
-        //     child: SafeArea(
-        //       child: Scaffold(
-        //         body: Body(),
-        //       ),
-        //     ),
-        //   );
-        // }
       },
     );
   }
-// final theme = Theme.of(context);
-//   return FutureBuilder(future: initUser(), builder: (context, AsyncSnapshot snapshot) {
-//     if (snapshot.hasData) {
-//           return WillPopScope(
-//             onWillPop: () => router.navigateTo(context, '/welcome'),
-//             child: SafeArea(
-//               child: Scaffold(
-//                 // appBar: AppBar(),
-//                   body: Body()
-//               ),
-//             ),
-//           );
-//         }
-//         else {
-//           Container();
-//         }
-//       }
-//   );
-// }
+
 }

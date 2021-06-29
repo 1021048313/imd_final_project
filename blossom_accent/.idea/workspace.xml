@@ -2,71 +2,41 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f777098b-5d22-42f1-b7b0-a320305722ab" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/.metadata" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/android/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/android/app/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/android/app/src/debug/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/android/app/src/main/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/android/app/src/main/kotlin/com/milox/blossom_audio/MainActivity.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/android/app/src/main/res/drawable-v21/launch_background.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/android/app/src/main/res/drawable/launch_background.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/android/app/src/main/res/values-night/styles.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/android/app/src/main/res/values/styles.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/android/app/src/profile/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/android/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/android/gradle.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/android/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/ios/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/ios/Flutter/AppFrameworkInfo.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/ios/Flutter/Debug.xcconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/ios/Flutter/Release.xcconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/ios/Runner.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/ios/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/ios/Runner/AppDelegate.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/ios/Runner/Base.lproj/LaunchScreen.storyboard" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/ios/Runner/Base.lproj/Main.storyboard" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/ios/Runner/Info.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/ios/Runner/Runner-Bridging-Header.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/lib/main.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/pubspec.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/pubspec.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blossom_audio/test/widget_test.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notion.md" beforeDir="false" afterPath="$PROJECT_DIR$/../notion.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../blossom_accents/lib/cloudbase/AudioTable.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../blossom_accents/lib/pages/detaillist/custom_overlay.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../blossom_accents/lib/pages/detaillist/voice.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../blossom_accents/lib/pages/detaillist/voiceplayer.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../blossom_accents/lib/pages/index/components/favorite_widget.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../blossom_accents/lib/pages/index/components/instruction_widget.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../blossom_accents/lib/pages/index/components/my_widget.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../blossom_accents/lib/pages/index/components/setting_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blossom_accent.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blossom_accents/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../blossom_accents/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blossom_accents/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../blossom_accents/android/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blossom_accents/lib/cloudbase/CloudBaseLogin.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../blossom_accents/lib/cloudbase/CloudBaseLogin.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blossom_accents/lib/cloudbase/CollectionTable.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../blossom_accents/lib/cloudbase/CollectionTable.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blossom_accents/lib/cloudbase/Tables.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../blossom_accents/lib/cloudbase/Tables.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blossom_accents/lib/cloudbase/UserTable.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../blossom_accents/lib/cloudbase/UserTable.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blossom_accents/lib/common/application.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../blossom_accents/lib/common/application.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blossom_accents/lib/components/already_have_an_account_acheck.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../blossom_accents/lib/pages/components/already_have_an_account_acheck.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blossom_accents/lib/components/rounded_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../blossom_accents/lib/pages/components/rounded_button.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blossom_accents/lib/components/rounded_input_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../blossom_accents/lib/pages/components/rounded_input_field.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blossom_accents/lib/components/rounded_password_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../blossom_accents/lib/pages/components/rounded_password_field.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blossom_accents/lib/components/text_field_container.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../blossom_accents/lib/pages/components/text_field_container.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blossom_accents/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../blossom_accents/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blossom_accents/lib/models/ListClass.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../blossom_accents/lib/models/ListClass.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blossom_accents/lib/models/UserClass.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blossom_accents/lib/pages/Login/components/body.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../blossom_accents/lib/pages/Login/components/body.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blossom_accents/lib/pages/Signup/components/body.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../blossom_accents/lib/pages/Signup/components/body.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blossom_accents/lib/pages/Welcome/components/body.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../blossom_accents/lib/pages/Welcome/components/body.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blossom_accents/lib/pages/detaillist/detailpage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../blossom_accents/lib/pages/detaillist/detailpage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blossom_accents/lib/pages/index/components/body.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../blossom_accents/lib/pages/index/components/body.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blossom_accents/lib/pages/index/components/main_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../blossom_accents/lib/pages/index/components/home_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blossom_accents/lib/pages/index/components/menu_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../blossom_accents/lib/pages/index/components/menu_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blossom_accents/lib/pages/index/index_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../blossom_accents/lib/pages/index/index_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blossom_accents/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../blossom_accents/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blossom_accents/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../blossom_accents/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +58,7 @@
     <property name="dart.analysis.tool.window.force.activate" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../blossom_audio" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="SvnConfiguration">
@@ -105,11 +75,11 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="63" y="16" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1624362707536">
+    <state x="63" y="16" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1624954405470">
       <screen x="0" y="0" width="1218" height="720" />
     </state>
     <state x="63" y="16" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1215.720@0.0.1215.720" timestamp="1624106631165" />
-    <state x="63" y="16" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1218.720@0.0.1218.720" timestamp="1624362707536" />
+    <state x="63" y="16" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1218.720@0.0.1218.720" timestamp="1624954405470" />
     <state x="93" y="93" width="1033" height="535" key="AVDManager" timestamp="1624358127857">
       <screen x="0" y="0" width="1218" height="720" />
     </state>

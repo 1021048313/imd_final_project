@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../Login/login_screen.dart';
 import '../../Signup/signup_screen.dart';
 import 'background.dart';
-import 'package:blossom_accents/components/rounded_button.dart';
+import 'package:blossom_accents/pages/components/rounded_button.dart';
 import 'package:blossom_accents/common/application.dart';
 import 'package:flutter_svg/svg.dart';
 

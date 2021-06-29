@@ -11,9 +11,7 @@ class MenuWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Container(
-
       color: Colors.blueGrey,
       padding: const EdgeInsets.only(top: 10),
       child: Column(
@@ -46,27 +44,37 @@ class MenuWidget extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-          sliderItem("主页", Icons.home, () {router.navigateTo(context, '/index',transition: TransitionType.inFromLeft); }),
-          sliderItem('收藏', Icons.favorite, () {}),
-          sliderItem('我的', Icons.person,(){}),
-          sliderItem('设置', Icons.settings,(){}),
-          sliderItem('说明', Icons.integration_instructions,(){}),
-          sliderItem('登出', Icons.arrow_back_ios,(){sharedDeleteAll().then((value) =>router.navigateTo(context, '/welcome',transition: TransitionType.inFromLeft) );})
+          sliderItem("主页", Icons.home,context),
+          // sliderItem("主页", Icons.home, () {router.navigateTo(context, '/index',transition: TransitionType.inFromLeft); }),
+          sliderItem('收藏' ,Icons.favorite,context),
+          sliderItem('我的', Icons.person,context),
+          sliderItem('设置', Icons.settings,context),
+          sliderItem('说明',Icons.integration_instructions,context),
+          SizedBox(
+            height: 10,
+          ),
+
+          sliderItem('登出',Icons.arrow_back_ios,context)
+          // sliderItem('登出', Icons.arrow_back_ios,(){)
         ],
       ),
     );
   }
 
-  Widget sliderItem(String title, IconData icons,VoidCallback onClicked) => ListTile(
+  Widget sliderItem(String title, IconData icons,context) => ListTile(
       title: Text(
         title,
         style:
         TextStyle(color: Colors.black, fontFamily: 'BalsamiqSans_Regular'),
       ),
-      leading: Icon(
-        icons,
-        color: Colors.black,
-      ),
-      onTap:onClicked
+      leading: Icon(icons, color: Colors.black,),
+      //返回onTap
+      onTap: () {
+        if(title!="登出")
+          onItemClick(title);
+        else{
+          sharedDeleteAll().then((value) =>router.navigateTo(context, '/welcome',transition: TransitionType.inFromLeft) );
+        }
+      }
   );
 }

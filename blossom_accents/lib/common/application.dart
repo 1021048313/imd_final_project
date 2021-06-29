@@ -2,6 +2,7 @@ import 'package:blossom_accents/models/ListClass.dart';
 import 'package:cloudbase_storage/cloudbase_storage.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'shared_util.dart';
 Map<String,String>mockUsers={};
@@ -17,7 +18,8 @@ String curUserEmail;
 String curUserImg="https://wx3.sinaimg.cn/mw690/008gNS3Fly1grtq4s6vn7j30c20c4tj4.jpg";
 String curUserId;
 String curUserInfo;
-List<ListClass> listItems=List<ListClass>();
+//
+Duration get delayTime => Duration(milliseconds: timeDilation.ceil() * 4250);
 void toast(String msg){
   Fluttertoast.showToast(
       msg: (msg),
@@ -29,6 +31,5 @@ void toast(String msg){
       fontSize: 16.0
   );
 }
-
 
 

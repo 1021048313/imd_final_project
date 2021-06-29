@@ -40,7 +40,8 @@ class CloudBaseLogin{
         return false;
       });
     }
-    CloudBaseDatabase db = CloudBaseDatabase(core);
+    db = CloudBaseDatabase(core);
+    // var _ = db.command;
     userCollection= db.collection('user');
     listCollection=db.collection('list');
     audioCollection=db.collection('audio');

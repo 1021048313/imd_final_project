@@ -1,4 +1,5 @@
 import 'package:blossom_accents/pages/Welcome/welcome_screen.dart';
+// import 'package:blossom_accents/pages/audio/audio_home.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import '../pages/Login/login_screen.dart';
@@ -41,3 +42,5 @@ var indexHandler =  Handler(
 var welcomeHandler =  Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
       return WelcomeScreen();});
+// var recordHandler=Handler( handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+//   return AudioHome();});
