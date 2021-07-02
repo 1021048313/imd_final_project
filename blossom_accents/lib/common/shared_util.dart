@@ -1,6 +1,5 @@
 import 'package:blossom_accents/common/application.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 sharedAddData(String key,Object dataType,Object data) async{
   SharedPreferences prefs=await SharedPreferences.getInstance();
   switch(dataType){
@@ -24,17 +23,17 @@ Future<Object> sharedGetData(String key) async{
   return prefs.get(key);
 }
 
-Future<void> sharedDeleteData(String key) async{
-  SharedPreferences prefs=await SharedPreferences.getInstance();
-  prefs.remove(key);
-}
+// Future<void> sharedDeleteData(String key) async{
+//   SharedPreferences prefs=await SharedPreferences.getInstance();
+//   prefs.remove(key);
+// }
 
-sharedAlterData(String key,Object dataType,Object value) async{
-  SharedPreferences prefs=await SharedPreferences.getInstance();
-  prefs.remove(key);
-  sharedAddData(key,dataType,value);
-
-}
+// sharedAlterData(String key,Object dataType,Object value) async{
+//   SharedPreferences prefs=await SharedPreferences.getInstance();
+//   prefs.remove(key);
+//   sharedAddData(key,dataType,value);
+//
+// }
 Future<void>sharedDeleteAll() async{
   SharedPreferences prefs=await SharedPreferences.getInstance();
   // prefs.clear();

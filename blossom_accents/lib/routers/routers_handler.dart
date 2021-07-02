@@ -1,5 +1,7 @@
+import 'package:blossom_accents/pages/Signup/signup_screen.dart';
 import 'package:blossom_accents/pages/Welcome/welcome_screen.dart';
-// import 'package:blossom_accents/pages/audio/audio_home.dart';
+import 'package:blossom_accents/pages/index/components/avatar_change.dart';
+import 'package:blossom_accents/pages/search/search_form.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import '../pages/Login/login_screen.dart';
@@ -34,6 +36,10 @@ var loginHandler =  Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
       return LoginScreen();
     });
+var registerHandler =  Handler(
+    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+      return SignUpScreen();
+    });
 //跳转到主页
 var indexHandler =  Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
@@ -44,3 +50,11 @@ var welcomeHandler =  Handler(
       return WelcomeScreen();});
 // var recordHandler=Handler( handlerFunc: (BuildContext context, Map<String, List<String>> params) {
 //   return AudioHome();});
+var avatarHandler=Handler(
+    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+  // return UploadAvatar();});
+ return ImagePickerPage();});
+var searchHandler=Handler(
+    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+      // return UploadAvatar();});
+      return SearchPage();});

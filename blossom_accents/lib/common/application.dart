@@ -1,24 +1,16 @@
-import 'package:blossom_accents/models/ListClass.dart';
-import 'package:cloudbase_storage/cloudbase_storage.dart';
+import 'dart:io';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'shared_util.dart';
 Map<String,String>mockUsers={};
 FluroRouter router=new FluroRouter();
-
 const USER_LOGIN="user-login";
 const USER_EMAIL="user-email";
-
-const kPrimaryColor = Color(0xFF6F35A5);
-const kPrimaryLightColor = Color(0xFFF1E6FF);
-String curUsername="起个名字呗";
+String curUsername;
 String curUserEmail;
-String curUserImg="https://wx3.sinaimg.cn/mw690/008gNS3Fly1grtq4s6vn7j30c20c4tj4.jpg";
+String curUserImg;
 String curUserId;
-String curUserInfo;
-//
 Duration get delayTime => Duration(milliseconds: timeDilation.ceil() * 4250);
 void toast(String msg){
   Fluttertoast.showToast(
@@ -31,5 +23,25 @@ void toast(String msg){
       fontSize: 16.0
   );
 }
+folderExists(String filepath) async {
+  var file = Directory(filepath);
+  try {
+    bool exists = await file.exists();
+    if (!exists) {
+      await file.create();
+    }
+  } catch (e) {
+    print(e);
+  }
+}
+
+const Color color1 = Color(0xfff1f3f6);
+const Color color2 = Color(0xff265b6a);
+const Color color3 = Color(0xff437787);
+const Color color4 = Color(0xff7296a3);
+const Color color5 = Color(0xff0a3352);
+const Color color6 = Color(0xFF5247BA);
+const Color color7 = Color(0xFFF1E6FF);
+const Color color8 = Color(0xc2abe6f5);
 
 

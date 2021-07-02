@@ -1,42 +1,22 @@
-import 'package:blossom_accents/cloudbase/CollectionTable.dart';
 import 'package:blossom_accents/cloudbase/UserTable.dart';
 import 'package:blossom_accents/common/application.dart';
 import 'package:blossom_accents/common/shared_util.dart';
-import 'package:blossom_accents/pages/index/components/body.dart';
+import 'package:blossom_accents/pages/index/body.dart';
 import 'package:flutter/material.dart';
-import 'package:blossom_accents/common/application.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-
-
 
 class IndexScreen extends StatefulWidget {
   static const routeName = '/index';
-
   @override
   _IndexScreenState createState() => _IndexScreenState();
 }
-
-
-Future<bool> initUserAndIndex(){
+Future<void> initUserAndIndex(){
   return Future.delayed(delayTime).then((_) async {
-    if (curUserEmail==null) await sharedGetData(USER_EMAIL).then((value){
-      curUserEmail = value.toString();
-      // print("curUserEmail="+curUserEmail);
-      UserTable().getUserInfo(curUserEmail).then((value) {
-        print("user加载完成");
-        print("curUsername="+curUsername);
-        print("curUserImg="+curUserImg);
-      });
-      return true;
-      // });
+    if (curUserEmail==null)
+      curUserEmail=await sharedGetData(USER_EMAIL);
+      await UserTable().getUserInfo(curUserEmail);
     });
-    return null;
-  });
-
-
 }
-
 class _IndexScreenState extends State<IndexScreen> {
 
   @override
@@ -61,5 +41,4 @@ class _IndexScreenState extends State<IndexScreen> {
       },
     );
   }
-
 }

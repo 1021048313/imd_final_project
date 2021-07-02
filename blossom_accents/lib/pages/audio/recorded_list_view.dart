@@ -1,8 +1,10 @@
 import 'package:audioplayers/audioplayers.dart';
+import 'package:blossom_accents/common/application.dart';
+import 'package:blossom_accents/models/RecordClass.dart';
 import 'package:flutter/material.dart';
 
 class RecordListView extends StatefulWidget {
-  final List<String> records;
+  final List<RecordClass> records;
   const RecordListView({
     Key key,
     this.records,
@@ -28,9 +30,7 @@ class _RecordListViewState extends State<RecordListView> {
       reverse: true,
       itemBuilder: (BuildContext context, int i) {
         return ExpansionTile(
-          title: Text(_getNameFromFilePatah(filePath: widget.records.elementAt(i))),
-          // subtitle: Text(
-          //     _getDateFromFilePatah(filePath: widget.records.elementAt(i))),
+          title: Text(widget.records.elementAt(i).explain),
           onExpansionChanged: ((newState) {
             if (newState) {
               setState(() {
@@ -51,15 +51,27 @@ class _RecordListViewState extends State<RecordListView> {
                     valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
                     value: _selectedIndex == i ? _completedPercentage : 0,
                   ),
-                  IconButton(
-                    icon: _selectedIndex == i
-                        ? _isPlaying
-                        ? Icon(Icons.pause)
-                        : Icon(Icons.play_arrow)
-                        : Icon(Icons.play_arrow),
-                    onPressed: () => _onPlay(
-                        filePath: widget.records.elementAt(i), index: i),
-                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      IconButton(
+                        icon: _selectedIndex == i
+                            ? _isPlaying
+                            ? Icon(Icons.pause)
+                            : Icon(Icons.play_arrow)
+                            : Icon(Icons.play_arrow),
+                        onPressed: () => _onPlay(
+                            filePath: widget.records.elementAt(i).filePath, index: i),
+                      ),
+                      //删除太烦了，以后再说吧
+                      // IconButton(icon: Icon(Icons.delete_forever), onPressed: (){
+                      //
+                      //   toast("删除成功！");
+                      // })
+                    ],
+
+                  )
+
                 ],
               ),
             ),
@@ -102,16 +114,4 @@ class _RecordListViewState extends State<RecordListView> {
     }
   }
 
-  String _getNameFromFilePatah({@required String filePath}) {
-    String fromEpoch = filePath.substring(
-        filePath.lastIndexOf('/') + 1, filePath.lastIndexOf('.'));
-    //
-    // DateTime recordedDate =
-    // DateTime.fromMillisecondsSinceEpoch(int.parse(fromEpoch));
-    // int year = recordedDate.year;
-    // int month = recordedDate.month;
-    // int day = recordedDate.day;
-
-    return (fromEpoch);
-  }
 }

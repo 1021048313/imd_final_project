@@ -1,4 +1,3 @@
-import 'package:blossom_accents/common/application.dart';
 import 'package:cloudbase_core/cloudbase_core.dart';
 import 'package:cloudbase_auth/cloudbase_auth.dart';
 import 'package:cloudbase_database/cloudbase_database.dart';
@@ -6,8 +5,6 @@ import 'package:cloudbase_storage/cloudbase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'Tables.dart';
 class CloudBaseLogin{
-  //用户表
-
   Future<bool> login() async{
     WidgetsFlutterBinding.ensureInitialized();
     // 初始化 CloudBase
@@ -44,9 +41,7 @@ class CloudBaseLogin{
     // var _ = db.command;
     userCollection= db.collection('user');
     listCollection=db.collection('list');
-    audioCollection=db.collection('audio');
     storage = CloudBaseStorage(core);
-
     return true;
 
   }

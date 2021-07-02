@@ -32,10 +32,6 @@ dependencies:
   fluro: ^1.7.8
   #sharedPrefs
   shared_preferences: ^0.5.4+8
-  # svg
-  flutter_svg: ^0.19.1
-  # 图标
-  font_awesome_flutter: ^8.12.0
   # toast
   fluttertoast: ^7.1.8
   # drawer
@@ -43,15 +39,25 @@ dependencies:
   # 加载中的图案，我很喜欢
   flutter_easyloading: ^2.2.2
   # 搜索框
-  material_floating_search_bar: ^0.2.6
+  fsearch: ^1.0.1
+  fsuper: ^0.1.5
+  fbutton: ^1.0.4
+  fswitch: ^1.1.2
+  ffloat: ^1.0.1
+  frefresh: ^1.1.0
+  fdottedline: ^1.0.0
+  ftoast: ^1.0.0
+  floading: ^1.0.2
   # 录音
-  flutter_plugin_record: ^0.3.5
-  flutter_screenutil: ^4.0.4
-  flutter_sound: ^7.8.4
   path_provider: ^1.6.28
   permission_handler: ^5.1.0
   flutter_audio_recorder: ^0.5.5
   audioplayers: ^0.17.0
+  # 头像
+  image_picker: ^0.6.7
+  # 分享
+  share: ^0.6.1+1
+
 
 
 
@@ -77,9 +83,6 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  assets:
-    - assets/icons/
-    - assets/images/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

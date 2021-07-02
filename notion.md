@@ -39,7 +39,7 @@
 | userEmail | string |
 | userPwd   | string |
 | userImage | string |
-| userLevel | int    |
+|           |        |
 
 ##### 歌单-list
 

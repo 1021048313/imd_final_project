@@ -1,19 +1,11 @@
-import 'package:blossom_accents/cloudbase/UserTable.dart';
-import 'package:blossom_accents/common/application.dart';
 import 'package:blossom_accents/common/application.dart';
 import 'package:blossom_accents/models/ListClass.dart';
-import 'package:blossom_accents/pages/Welcome/welcome_screen.dart';
 import 'package:blossom_accents/pages/audio/recorder_home_view.dart';
-import 'package:blossom_accents/pages/detaillist/detailpage.dart';
-import 'package:blossom_accents/pages/index/index_screen.dart';
+import 'package:blossom_accents/pages/search/search_form.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:blossom_accents/cloudbase/CollectionTable.dart';
-import 'package:blossom_accents/common/application.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:blossom_accents/common/application.dart';
-
 class HomeWidget extends StatefulWidget {
   static const routeName = '/home';
 
@@ -25,7 +17,6 @@ class _HomeWidgetState extends State<HomeWidget> {
   // String valueText,codeDialog;
   List<ListClass> listItems;
   final TextEditingController _headerEditingController = TextEditingController();
-  // final TextEditingController _contentEditingController=TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   //点击按钮出现的对话框-用来创建集合的
@@ -63,20 +54,19 @@ class _HomeWidgetState extends State<HomeWidget> {
                   child: Text('创建'),
                   onPressed: () async {
                     if(_formKey.currentState.validate()){
-                      String tableId;
                       //向CollectionTableAdd一个空表
                       var now = new DateTime.now();
                       int time=now.microsecondsSinceEpoch;
                       // await CollectionTable().addCollection(_headerEditingController.text, _contentEditingController.text,time);
-                      await CollectionTable().addCollection(_headerEditingController.text, time);
+                      String tableId=await CollectionTable().addCollection(_headerEditingController.text, time);
                         // tableId = value;
-                        // print("tableID="+tableId);
+                        print("tableID="+tableId);
                         // print("TableId="+(tableId==null?"table=null":tableId));
                         //向UserTable更新集合，以便后面搜索。
                         // await UserTable().updateListById(tableId).then((value) {
                           toast("增加成功");
                           Navigator.of(context).pop();
-                          // router.navigateTo(context, 'index', transition: TransitionType.fadeIn)
+                          router.navigateTo(context, 'index', transition: TransitionType.fadeIn);
                         // return HomeWidget();
                           // var listItemsUpdate=ListClass(_headerEditingController.text, _contentEditingController.text, curUserId, 0);
                           // setState(() {
@@ -109,7 +99,7 @@ class _HomeWidgetState extends State<HomeWidget> {
   Widget build(BuildContext context) {
 
     ListTile makeListTile(ListClass lesson) => ListTile(
-      contentPadding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 30.0),
+      contentPadding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
       leading: Container(
         padding: EdgeInsets.only(right: 12.0),
         decoration: new BoxDecoration(
@@ -117,7 +107,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                 right: new BorderSide(width: 1.0, color: Colors.white24))),
         child: Column(
           children: <Widget>[
-            if(lesson.listType==1) Icon(Icons.person_outline)
+            if(lesson.userId==curUserId) Icon(Icons.person_outline)
             else Icon(Icons.autorenew, color: Colors.white),
           ],
         )
@@ -130,38 +120,22 @@ class _HomeWidgetState extends State<HomeWidget> {
       ),
       // subtitle: Text("Intermediate", style: TextStyle(color: Colors.white)),
 
-      // subtitle: Row(
-      //   children: <Widget>[
-      //     //content
-      //     Expanded(
-      //         flex: 4,
-      //         child: Container(
-      //           // tag: 'hero',
-      //           child: Padding(
-      //               padding: EdgeInsets.only(),
-      //               child: Text(lesson.content,
-      //                   style: TextStyle(color: Colors.white),
-      //                   maxLines: 2,
-      //                   overflow: TextOverflow.fade,
-      //                   softWrap:true)
-      //           ),
-      //
-      //
-      //         )),
-      //     Expanded(
-      //       flex: 1,
-      //       child: Padding(
-      //         padding: EdgeInsets.only(left: 10.0),
-      //         child:Row(
-      //           children: <Widget>[
-      //             Icon(Icons.menu_book),
-      //             Text(" "+lesson.wordCount.toString(), style: TextStyle(color: Colors.white)),
-      //           ],
-      //         ),
-      //       ),
-      //     )
-      //   ],
-      // ),
+      subtitle: Row(
+        children: <Widget>[
+          Expanded(
+            flex: 1,
+            child: Padding(
+              padding: EdgeInsets.only(left: 10.0),
+              child:Row(
+                children: <Widget>[
+                  Icon(Icons.menu_book),
+                  Text("  "+lesson.wordCount.toString(), style: TextStyle(color: Colors.white)),
+                ],
+              ),
+            ),
+          )
+        ],
+      ),
       trailing:
       Icon(Icons.keyboard_arrow_right, color: Colors.white, size: 30.0),
       onTap: () {
@@ -177,7 +151,7 @@ class _HomeWidgetState extends State<HomeWidget> {
       elevation: 8.0,
       margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
       child: Container(
-        decoration: BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
+        decoration: BoxDecoration(color: color3),
         child: makeListTile(lesson),
       ),
     );
@@ -187,33 +161,14 @@ class _HomeWidgetState extends State<HomeWidget> {
     final topAppBar = PreferredSize(
       preferredSize: Size.fromHeight(kToolbarHeight),
       child: Container(
-        padding: const EdgeInsets.only(top:10),
         decoration: BoxDecoration(
           // borderRadius: BorderRadius.circular(60),
           color: Colors.white,
         ),
-        child: Padding(
-          padding: const EdgeInsets.all(5.0),
-          child: Material(
+        //搜索框
+        child: Material(
             color: Colors.white,
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Icon(Icons.search,color: Colors.grey),
-                Expanded(
-                  child: TextField(
-                  // textAlign: TextAlign.center,
-                  decoration: InputDecoration.collapsed(
-                    hintText: '搜索',
-                  ),
-                  onChanged: (value) {},
-                  ),
-                ),
-                // InkWell(
-                // )
-              ],
-            ),
-          ),
+            child: SearchPage(),
         )
       ) ,
     );
@@ -225,7 +180,7 @@ class _HomeWidgetState extends State<HomeWidget> {
           listItems=snapshot.data;
           EasyLoading.dismiss();
           return Scaffold(
-            backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
+            backgroundColor: color4,
             appBar: topAppBar,
             body: Container(
               // decoration: BoxDecoration(color: Color.fromRGBO(58, 66, 86, 1.0)),
@@ -250,11 +205,7 @@ class _HomeWidgetState extends State<HomeWidget> {
           EasyLoading.show(status: 'loading...');
           return Container();
         }
-        // else return IndexScreen();
-
       },
     );
-
-
   }
 }

@@ -1,5 +1,8 @@
+
 import 'dart:io';
 
+import 'package:blossom_accents/cloudbase/CollectionTable.dart';
+import 'package:blossom_accents/cloudbase/storageMethod.dart';
 import 'package:blossom_accents/common/application.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_audio_recorder/flutter_audio_recorder.dart';
@@ -7,8 +10,9 @@ import 'package:path_provider/path_provider.dart';
 
 class RecorderView extends StatefulWidget {
   final Function onSaved;
+  final String tableId;
 
-  const RecorderView({Key key, @required this.onSaved}) : super(key: key);
+  const RecorderView({Key key, @required this.onSaved,@required this.tableId}) : super(key: key);
   @override
   _RecorderViewState createState() => _RecorderViewState();
 }
@@ -21,9 +25,12 @@ enum RecordingState {
 }
 
 class _RecorderViewState extends State<RecorderView> {
+
   IconData _recordIcon = Icons.mic_none;
   String _recordText = '开始';
   RecordingState _recordingState = RecordingState.UnSet;
+  String filePath;
+
 
   // Recorder properties
   FlutterAudioRecorder audioRecorder;
@@ -33,7 +40,6 @@ class _RecorderViewState extends State<RecorderView> {
   @override
   void initState() {
     super.initState();
-
     FlutterAudioRecorder.hasPermissions.then((hasPermision) {
       if (hasPermision) {
         _recordingState = RecordingState.Set;
@@ -78,11 +84,6 @@ class _RecorderViewState extends State<RecorderView> {
                   child: Text('创建'),
                   onPressed: () async {
                     if(_formKey.currentState.validate()){
-                      String tableId;
-                      //向CollectionTableAdd一个空表
-                      var now = new DateTime.now();
-                      // int time=now.microsecondsSinceEpoch;
-                      toast("增加成功");
                       Navigator.of(context).pop();
                     }
                   },
@@ -105,7 +106,6 @@ class _RecorderViewState extends State<RecorderView> {
       children: [
         RaisedButton(
           onPressed: () async {
-
             await _onRecordButtonPressed();
             setState(() {});
 
@@ -140,7 +140,7 @@ class _RecorderViewState extends State<RecorderView> {
 
       case RecordingState.Recording:
         await _stopRecording();
-        await showInformationDialog(context);
+
         _recordingState = RecordingState.Stopped;
         _recordIcon = Icons.fiber_manual_record;
         _recordText = '再来一个';
@@ -148,7 +148,6 @@ class _RecorderViewState extends State<RecorderView> {
 
       case RecordingState.Stopped:
         await _recordVoice();
-        // await showInformationDialog(context);
         break;
 
       case RecordingState.UnSet:
@@ -160,15 +159,20 @@ class _RecorderViewState extends State<RecorderView> {
     }
   }
 
-  _initRecorder() async {
+  _initRecorder(String name) async {
     Directory appDirectory = await getApplicationDocumentsDirectory();
-    String filePath = appDirectory.path +
-        '/' +
-        DateTime.now().millisecondsSinceEpoch.toString() +
+    //这个是录音的，保存的文件放缓存 /userAudio/tableId/下面，用explain作为文件名。
+    filePath = appDirectory.path +
+        '/userAudio/' + widget.tableId+"/"+
+        // DateTime.now().millisecondsSinceEpoch.toString() +
+        name+
         '.aac';
+    if (File(filePath).existsSync()) toast("这个词条用过了");
+    // else
+      audioRecorder =
+          FlutterAudioRecorder(filePath, audioFormat: AudioFormat.AAC);
 
-    audioRecorder =
-        FlutterAudioRecorder(filePath, audioFormat: AudioFormat.AAC);
+
     await audioRecorder.initialized;
   }
 
@@ -179,19 +183,30 @@ class _RecorderViewState extends State<RecorderView> {
 
   _stopRecording() async {
     await audioRecorder.stop();
+    // await showInformationDialog(context);
+    String explain=filePath.substring(
+        filePath.lastIndexOf('/') + 1, filePath.lastIndexOf('.'));
+    //上传到云端。
+    String audioId=await StorageMethod().audioUpload(filePath,explain);
+    //加到collection数据库里头
+    CollectionTable().addSingleAudio(widget.tableId, audioId,explain);
     widget.onSaved();
 
   }
 
   Future<void> _recordVoice() async {
     if (await FlutterAudioRecorder.hasPermissions) {
-      await _initRecorder();
+      await showInformationDialog(context);
+      await _initRecorder(_explainEditingController.text);
+      _explainEditingController.clear();
 
       await _startRecording();
       _recordingState = RecordingState.Recording;
       _recordIcon = Icons.stop;
       _recordText = '正在...';
-    } else {
+    }
+    //没有权限
+    else {
       Scaffold.of(context).hideCurrentSnackBar();
       Scaffold.of(context).showSnackBar(SnackBar(
         content: Text('开个录音权限呗'),
