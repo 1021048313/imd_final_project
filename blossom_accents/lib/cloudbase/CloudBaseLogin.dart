@@ -10,12 +10,12 @@ class CloudBaseLogin{
     // 初始化 CloudBase
     CloudBaseCore core = CloudBaseCore.init({
       // 填写您的云开发 env
-      'env': 'hello-cloudbase-1gu7n3nx256c8a7e',
+      'env': '',
       // 填写您的移动应用安全来源凭证
       // 生成凭证的应用标识必须是 Android 包名或者 iOS BundleID
       'appAccess': {
         // 凭证
-        'key': '80548de3ae4fe091046523185765b9bf',
+        'key': '',
         // 版本
         'version': '1'
       }

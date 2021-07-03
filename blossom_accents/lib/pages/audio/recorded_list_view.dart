@@ -28,7 +28,7 @@ class _RecordListViewState extends State<RecordListView> {
       shrinkWrap: true,
       reverse: true,
       itemBuilder: (BuildContext context, int i) {
-        return (
+        return ExpansionTile(
           title: Text(widget.records.elementAt(i).explain),
           onExpansionChanged: ((newState) {
             if (newState) {
