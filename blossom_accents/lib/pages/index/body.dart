@@ -36,7 +36,7 @@ class BodyPage extends State<Body> {
           isTitleCenter: false,
           title: Text(
             title,
-            style: TextStyle(fontSize: 22, fontWeight: FontWeight.w700),
+            style: TextStyle(fontSize: 22, fontWeight: FontWeight.w700,color: Colors.white),
           ),
           sliderMenu: MenuWidget(
             onItemClick: (title) {

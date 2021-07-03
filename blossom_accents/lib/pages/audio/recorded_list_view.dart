@@ -1,5 +1,4 @@
 import 'package:audioplayers/audioplayers.dart';
-import 'package:blossom_accents/common/application.dart';
 import 'package:blossom_accents/models/RecordClass.dart';
 import 'package:flutter/material.dart';
 
@@ -29,7 +28,7 @@ class _RecordListViewState extends State<RecordListView> {
       shrinkWrap: true,
       reverse: true,
       itemBuilder: (BuildContext context, int i) {
-        return ExpansionTile(
+        return (
           title: Text(widget.records.elementAt(i).explain),
           onExpansionChanged: ((newState) {
             if (newState) {

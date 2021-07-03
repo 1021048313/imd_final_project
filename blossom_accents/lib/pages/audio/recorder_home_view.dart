@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:io';
 import 'package:blossom_accents/cloudbase/CollectionTable.dart';
-import 'package:blossom_accents/cloudbase/Tables.dart';
 import 'package:blossom_accents/common/application.dart';
 import 'package:blossom_accents/models/ListClass.dart';
 import 'package:blossom_accents/models/RecordClass.dart';

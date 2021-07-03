@@ -3,7 +3,6 @@ import 'package:blossom_accents/common/application.dart';
 import 'package:blossom_accents/models/ListClass.dart';
 import 'package:blossom_accents/pages/audio/recorder_home_view.dart';
 import 'package:blossom_accents/pages/search/search_form.dart';
-import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:blossom_accents/cloudbase/CollectionTable.dart';
 
@@ -90,7 +89,7 @@ class _SearchResultState extends State<SearchResult> {
       elevation: 8.0,
       margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
       child: Container(
-        decoration: BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
+        decoration: BoxDecoration(color: color4),
         child: makeListTile(lesson),
       ),
     );
@@ -123,7 +122,7 @@ class _SearchResultState extends State<SearchResult> {
           listItems=snapshot.data;
           EasyLoading.dismiss();
           return Scaffold(
-            backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
+            backgroundColor: color4,
             appBar: topAppBar,
             body: Container(
               // decoration: BoxDecoration(color: Color.fromRGBO(58, 66, 86, 1.0)),
